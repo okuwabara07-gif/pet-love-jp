@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "next": "^16.2.1",
+    "next": "^15.2.1",
     "next-mdx-remote": "^6.0.0",
     "next-sitemap": "^4.2.3",
     "react": "^18",
