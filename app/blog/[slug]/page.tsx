@@ -1,32 +1,32 @@
-import { getAllPosts, getPostBySlug } from '@/lib/posts';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import { notFound } from 'next/navigation';
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { getPostBySlug, getAllPosts } from '@/lib/posts'
+import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  return getAllPosts().map(p => ({ slug: p.slug }));
+  return getAllPosts().map(p => ({ slug: p.slug }))
 }
 
-export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
-  if (!post) notFound();
+type Props = {
+  params: Promise<{ slug: string }>
+}
+
+export default async function PostPage({ params }: Props) {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
+  if (!post) notFound()
   return (
-    <>
-      <div className="article-hero">
-        <div className="article-hero-inner">
-          <p className="article-genre">{post.genre}</p>
-          <h1 className="article-title">{post.title}</h1>
-          <div className="article-meta"><span>{post.date}</span></div>
-          {post.tags.length > 0 && (
-            <div className="tags">
-              {post.tags.map(t => <span key={t} className="tag">#{t}</span>)}
-            </div>
-          )}
+    <main>
+      <header className="site-header">
+        <div className="site-title">{post.title}</div>
+      </header>
+      <main style={{maxWidth:'900px',margin:'0 auto',padding:'2rem 1.5rem 4rem'}}>
+        <div className="section-label">{post.genre}</div>
+        <h1 style={{fontFamily:'Cormorant Garamond,serif',fontWeight:300,fontSize:'1.4rem',margin:'1rem 0 0.5rem'}}>{post.title}</h1>
+        <p style={{fontSize:'0.7rem',color:'var(--text-secondary)',marginBottom:'2rem'}}>{post.date}</p>
+        <div style={{fontSize:'0.9rem',lineHeight:1.9}}>
+          <MDXRemote source={post.content} />
         </div>
-      </div>
-      <article className="article-body">
-        <MDXRemote source={post.content} />
-      </article>
-    </>
-  );
+      </main>
+    </main>
+  )
 }
