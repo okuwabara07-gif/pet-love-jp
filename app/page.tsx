@@ -17,7 +17,7 @@ export default function Home() {
     <main>
       <header className="site-header">
         <div className="site-nav-bar">
-          <div className="site-logo">Pet Love</div>
+          <div className="site-logo">Hair Colour Lab</div>
           <div style={{display:'flex',flexDirection:'column' as const,gap:4}}>
             <div style={{width:20,height:'0.5px',background:'#2A2218'}}></div>
             <div style={{width:14,height:'0.5px',background:'#2A2218'}}></div>
@@ -25,7 +25,7 @@ export default function Home() {
           </div>
         </div>
         <div className="eyebrow" style={{marginBottom:8}}>K · BEAUTY PORTAL</div>
-        <div className="section-title">ペットのランキング</div>
+        <div className="section-title">ヘアカラーのランキング</div>
       </header>
 
       <div className="portal-banner">
@@ -36,7 +36,7 @@ export default function Home() {
         </a>
       </div>
 
-      <div className="section-label">ペット · TOP ARTICLES</div>
+      <div className="section-label">ヘアカラー · TOP ARTICLES</div>
 
       <footer className="site-footer">
         <span>© 2026 AOKAE LLC</span>
