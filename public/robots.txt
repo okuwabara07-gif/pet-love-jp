@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pet-love-jp.vercel.app/sitemap.xml
+Sitemap: https://okuwabara07-gif.github.io/pet-love-jp/sitemap.xml
