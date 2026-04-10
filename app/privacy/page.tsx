@@ -1,26 +1,20 @@
 export default function PrivacyPage() {
   return (
-    <div className="container" style={{maxWidth:800,margin:'0 auto',padding:'2rem 1rem'}}>
-      <h1 style={{fontSize:24,fontWeight:500,marginBottom:'1.5rem'}}>プライバシーポリシー</h1>
-
-      <p>本サイト「ペットLOVE」（以下「当サイト」）は、ユーザーのプライバシーを尊重し、個人情報の保護に努めます。</p>
-
-      <h2 style={{fontSize:18,fontWeight:500,margin:'1.5rem 0 0.5rem'}}>広告について</h2>
-      <p>当サイトでは、第三者配信の広告サービス（Google AdSense、Amazonアソシエイト、楽天アフィリエイト）を利用しています。これらの広告配信事業者は、ユーザーの興味に応じた広告を表示するためにCookieを使用することがあります。</p>
-
-      <h2 style={{fontSize:18,fontWeight:500,margin:'1.5rem 0 0.5rem'}}>アクセス解析ツールについて</h2>
-      <p>当サイトでは、Googleアナリティクスによるアクセス解析を行っています。Googleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。このデータは匿名で収集されており、個人を特定するものではありません。</p>
-
-      <h2 style={{fontSize:18,fontWeight:500,margin:'1.5rem 0 0.5rem'}}>Cookieについて</h2>
-      <p>当サイトでは、広告配信やアクセス解析のためにCookieを使用しています。ブラウザの設定によりCookieを無効にすることも可能ですが、一部機能が利用できなくなる場合があります。</p>
-
-      <h2 style={{fontSize:18,fontWeight:500,margin:'1.5rem 0 0.5rem'}}>免責事項</h2>
-      <p>当サイトのコンテンツについては正確性を期しておりますが、その内容の正確性・完全性を保証するものではありません。当サイトの情報を利用したことで生じたいかなる損害についても、当サイトは責任を負いかねます。</p>
-
-      <h2 style={{fontSize:18,fontWeight:500,margin:'1.5rem 0 0.5rem'}}>お問い合わせ</h2>
-      <p>本プライバシーポリシーに関するお問い合わせは、サイト運営者までご連絡ください。</p>
-
-      <p style={{marginTop:'2rem',color:'#888',fontSize:13}}>制定日：2025年1月1日</p>
-    </div>
-  );
+    <main style={{maxWidth:'800px',margin:'0 auto',padding:'2rem 1rem'}}>
+      <h1>プライバシーポリシー</h1>
+      <p>当サイトは、個人情報の保護に関する法律を遵守し、以下の方針に基づき個人情報を適切に取り扱います。</p>
+      <h2>個人情報の収集</h2>
+      <p>当サイトでは、お問い合わせの際にお名前・メールアドレス等の個人情報をご入力いただく場合があります。収集した個人情報は、お問い合わせへの回答以外の目的には使用しません。</p>
+      <h2>アクセス解析・広告について</h2>
+      <p>当サイトでは、Google Analytics及びGoogle AdSenseを使用しています。これらのサービスはCookieを使用してアクセス情報を収集します。収集される情報は匿名であり、個人を特定するものではありません。</p>
+      <p>Google AdSenseに関するプライバシーポリシーは<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">こちら</a>をご確認ください。</p>
+      <h2>アフィリエイトについて</h2>
+      <p>当サイトは、Amazon.co.jp、楽天市場、A8.net等のアフィリエイトプログラムに参加しています。記事内のリンクから商品を購入された場合、当サイトに報酬が発生することがあります。</p>
+      <h2>免責事項</h2>
+      <p>当サイトの情報は正確性を期していますが、内容の正確性・安全性を保証するものではありません。当サイトの情報を参考にした行動により生じた損害について、当サイトは責任を負いません。</p>
+      <h2>お問い合わせ</h2>
+      <p>プライバシーポリシーに関するお問い合わせは<a href="/contact">お問い合わせページ</a>よりご連絡ください。</p>
+      <p style={{color:'#888',fontSize:'0.85rem'}}>最終更新日：2026年4月10日</p>
+    </main>
+  )
 }
