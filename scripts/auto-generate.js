@@ -6,9 +6,12 @@ const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 const AMAZON_TRACKING_ID = process.env.AMAZON_TRACKING_ID || 'haircolorab22-22';
 const RAKUTEN_AFFILIATE_ID = process.env.RAKUTEN_AFFILIATE_ID || '5253b9ed.08f9d938.5253b9ee.e71aefe8';
 const MOSHIMO_ID = '1184522';
-const SITE_NAME =  + site_name + ;
-const TOPIC =  + topic + ;
-const CRITERIA =  + criteria + ;
+const SITE_NAME = 'ペットラブJP';
+const TOPIC = 'ペット用品・犬猫グッズ・ペットフード';
+const CRITERIA = '安全性・品質・コスパ・使いやすさ・口コミ';
+const A8_PRODUCT_NAME = 'マツキヨ公式オンラインショップ';
+const A8_PRODUCT_URL = 'https://px.a8.net/svt/ejp?a8mat=4AZR8U+HXZDEA+4LJK+5YZ75';
+const A8_PRODUCT_DESC = '日用品・美容品が豊富に揃う';
 
 function moshimoAmazonLink(keyword) {
   const searchUrl = encodeURIComponent('https://www.amazon.co.jp/s?k=' + encodeURIComponent(keyword) + '&tag=' + AMAZON_TRACKING_ID);
@@ -37,9 +40,9 @@ function getKeywords() {
   const base = TOPIC.split('・')[0];
   return [
     base + 'おすすめランキング',
-    base + '人気ランキング',
-    base + 'コスパ最強',
+    base + '人気商品 比較',
     base + '選び方 失敗しない',
+    base + '効果 口コミ',
     base + '初心者 どれがいい',
   ];
 }
@@ -51,29 +54,44 @@ async function generateArticle(keyword) {
   const imgSeed = Math.abs(keyword.split('').reduce((a,c) => a + c.charCodeAt(0), 0));
   const title = '【' + year + '年最新】' + keyword + 'おすすめTOP5｜専門家が徹底比較';
 
-  const prompt = 'あなたはプロのレビューライターです。\n' +
-    '「' + keyword + '」について購買意欲を高める比較記事を日本語で書いてください。\n\n' +
-    '以下の形式で出力してください:\n\n' +
+  const prompt = 'あなたはプロのレビューライター兼SEO専門家です。\n' +
+    '「' + keyword + '」について、読者が購入したくなる高品質な比較記事を日本語で書いてください。\n\n' +
+    '必須条件:\n' +
+    '1. 冒頭に結論（おすすめ1位）を書く\n' +
+    '2. 実際の商品名を使う（架空の商品名は禁止）\n' +
+    '3. 各商品のメリット・デメリットを正直に書く\n' +
+    '4. 読者のタイプ別におすすめを提示する\n' +
+    '5. 評価基準: ' + CRITERIA + '\n\n' +
+    '以下の形式で出力:\n\n' +
     '---\n' +
     'title: "' + title + '"\n' +
     'date: "' + new Date().toISOString().split('T')[0] + '"\n' +
     'genre: "' + TOPIC.split('・')[0] + '"\n' +
-    'excerpt: "' + keyword + 'について専門家が解説。おすすめ商品を紹介します。"\n' +
+    'excerpt: "' + keyword + 'のおすすめ商品を専門家が徹底比較。失敗しない選び方も解説。"\n' +
     '---\n\n' +
     '![' + keyword + '](https://picsum.photos/seed/' + imgSeed + '/800/450)\n\n' +
-    '[→ Amazonで探す](' + amazonLink + ')\n' +
-    '[→ 楽天で探す](' + rakutenLink + ')\n\n' +
-    '## ' + keyword + ' おすすめTOP5\n\n' +
-    CRITERIA.split('・').map(c => '- **' + c + '**').join('\n') + '\n\n' +
-    '(各商品150文字以上でレビュー。メリット・デメリット・こんな人におすすめを含める)\n\n' +
+    '## 結論：迷ったらこれを買えば間違いなし\n\n' +
+    '> **PR情報**: ' + A8_PRODUCT_NAME + 'は今注目の商品です。\n' +
+    '> [→ ' + A8_PRODUCT_NAME + 'をチェックする](' + A8_PRODUCT_URL + ')\n\n' +
+    '[→ Amazonで' + keyword + 'を探す](' + amazonLink + ')\n' +
+    '[→ 楽天で' + keyword + 'を探す](' + rakutenLink + ')\n\n' +
+    '## ' + keyword + ' おすすめTOP5 比較表\n\n' +
+    '(実際の商品名を使って比較表を作成。各商品の特徴・価格・評価を記載)\n\n' +
+    '## 選び方の3つのポイント\n\n' +
+    CRITERIA.split('・').map(c => '### ' + c + '\n（詳しく解説）\n').join('\n') + '\n' +
+    '## 第1位〜第5位 詳細レビュー\n\n' +
+    '(各商品150文字以上。実際の商品名・価格・特徴・メリット・デメリット・おすすめの人)\n\n' +
+    '## ' + A8_PRODUCT_DESC + '\n\n' +
+    '[→ ' + A8_PRODUCT_NAME + 'の詳細を見る](' + A8_PRODUCT_URL + ')\n\n' +
     '[→ Amazonで今すぐ確認](' + amazonLink + ')\n' +
     '[→ 楽天で最安値を見る](' + rakutenLink + ')\n\n' +
+    '## よくある質問\n\n' +
     '## まとめ\n\n' +
     '※本記事はアフィリエイト広告を含みます。';
 
   const body = JSON.stringify({
     model: 'claude-sonnet-4-20250514',
-    max_tokens: 2000,
+    max_tokens: 3000,
     messages: [{ role: 'user', content: prompt }]
   });
 
