@@ -1,15 +1,14 @@
 import Link from 'next/link'
 
 const RELATED_SITES = [
-  { name: "AI LAB", url: "https://ai-lab-jp.vercel.app" },
-  { name: "ベビーノート", url: "https://baby-note-jp.vercel.app" },
-  { name: "バイクノート", url: "https://bike-note-jp.vercel.app" },
-  { name: "カメラLAB", url: "https://camera-lab-jp.vercel.app" },
-  { name: "childcare-jp", url: "https://childcare-jp.vercel.app" },
-  { name: "coffee-note-jp", url: "https://coffee-note-jp.vercel.app" },
-  { name: "cooking-note-jp", url: "https://cooking-note-jp.vercel.app" },
-  { name: "english-lab-jp", url: "https://english-lab-jp.vercel.app" },
-
+  { name: "アフィリエイトLAB", url: "https://affiliate-lab-jp.vercel.app" },
+  { name: "FXノート", url: "https://fx-note-jp.vercel.app" },
+  { name: "フリーランスノート", url: "https://freelance-note-jp.vercel.app" },
+  { name: "投資LAB", url: "https://investment-lab-jp.vercel.app" },
+  { name: "ローンノート", url: "https://loan-note-jp.vercel.app" },
+  { name: "マネーノート", url: "https://money-note-jp.vercel.app" },
+  { name: "NISAノート", url: "https://nisa-note-jp.vercel.app" },
+  { name: "節約LAB", url: "https://saving-lab-jp.vercel.app" },
 ]
 
 export default function RelatedSites() {
@@ -46,7 +45,6 @@ export default function RelatedSites() {
               fontSize: '0.8rem',
               color: '#495057',
               textDecoration: 'none',
-              transition: 'all 0.2s'
             }}
           >
             {site.name}
