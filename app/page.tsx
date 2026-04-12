@@ -85,14 +85,14 @@ export default function Home() {
               target="_blank" rel="nofollow noopener noreferrer sponsored"
               style={{display:'block'}}>
               <img src="https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3767207&pid=892590463"
-                border="0" alt="Renta!漫画レンタル" style={{display:'block'}}/>
+                alt="Renta!漫画レンタル" style={{display:'block'}}/>
             </a>
             {/* BookLive */}
             <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3767207&pid=892590475"
               target="_blank" rel="nofollow noopener noreferrer sponsored"
               style={{display:'block'}}>
               <img src="https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3767207&pid=892590475"
-                border="0" alt="BookLive電子書籍" style={{display:'block'}}/>
+                alt="BookLive電子書籍" style={{display:'block'}}/>
             </a>
           </div>
           <p style={{fontSize:'9px',color:'var(--text)',opacity:0.4,textAlign:'center',marginTop:'6px'}}>PR</p>
