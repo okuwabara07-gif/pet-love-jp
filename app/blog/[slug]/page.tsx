@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: any) {
 }
 
 function img(kw: string, w: number, h: number) {
-  const seed = Math.abs(kw.split('').reduce((a:number,c:string)=>a+c.charCodeAt(0),0))
+  const seed = Math.abs((kw||'').split('').reduce((a:number,c:string)=>a+c.charCodeAt(0),0))
   return `https://picsum.photos/seed/${seed}/${w}/${h}`
 }
 
@@ -26,8 +26,8 @@ export default async function PostPage({ params }: Props) {
   const post = getPostBySlug(slug)
   if (!post) notFound()
   const related = getAllPosts().filter((p: any) => p.slug !== slug).slice(0, 4)
-  const amz = `https://www.amazon.co.jp/s?k=${encodeURIComponent(post.title||'')}&tag=haircolorab22-22`
-  const rak = `https://search.rakuten.co.jp/search/mall/${encodeURIComponent(post.title||'')}/?af=5253b9ed.08f9d938.5253b9ee.e71aefe8`
+  const amz = `https://www.amazon.co.jp/s?k=${encodeURIComponent(post?.title||'')}&tag=haircolorab22-22`
+  const rak = `https://search.rakuten.co.jp/search/mall/${encodeURIComponent(post?.title||'')}/?af=5253b9ed.08f9d938.5253b9ee.e71aefe8`
 
   return (
     <main>
