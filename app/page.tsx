@@ -97,6 +97,17 @@ export default function Home() {
           </div>
           <p style={{fontSize:'9px',color:'var(--text)',opacity:0.4,textAlign:'center',marginTop:'6px'}}>PR</p>
         </div>
+
+      <section className="section">
+        <div style={{padding:'1rem',background:'var(--card)',borderRadius:'12px',border:'1px solid var(--secondary)'}}>
+          <p style={{fontSize:'0.75rem',color:'var(--accent)',marginBottom:'8px',textAlign:'center',fontWeight:700}}>おすすめサービス</p>
+          <div style={{display:'flex',flexDirection:'column',gap:'8px'}}>
+            <a href="https://www.amazon.co.jp?tag=haircolorab22-22" target="_blank" rel="nofollow noopener noreferrer sponsored" style={{display:'block',padding:'10px 16px',background:'var(--primary)',color:'white',borderRadius:'8px',textDecoration:'none',textAlign:'center',fontSize:'0.85rem',fontWeight:700}}>Amazon - お得なショッピング</a>
+            <a href="https://hb.afl.rakuten.co.jp/hgc/5253b9ed.08f9d938.5253b9ee.e71aefe8/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2F&m=https%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" rel="nofollow noopener noreferrer sponsored" style={{display:'block',padding:'10px 16px',background:'var(--card)',border:'1px solid var(--secondary)',borderRadius:'8px',textDecoration:'none',textAlign:'center',fontSize:'0.85rem',color:'var(--text)',fontWeight:600}}>楽天市場 - ポイントでお得に</a>
+          </div>
+          <p style={{fontSize:'9px',color:'var(--text)',opacity:0.4,textAlign:'center',marginTop:'6px'}}>PR</p>
+        </div>
+      </section>
     </main>
   )
 }
